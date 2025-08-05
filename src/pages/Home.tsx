@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -21,47 +20,32 @@ import {
 import shuttleFleet from "@/assets/shuttle-fleet.jpg";
 import driverTeam from "@/assets/driver-team.jpg";
 import wineTours from "@/assets/wine-tours.jpg";
-import airportTransfer from "@/assets/airport-transfer.jpg";
-import wineTourService from "@/assets/wine-tour-service.jpg";
-import shuttleService from "@/assets/shuttle-service.jpg";
-import tourPackages from "@/assets/tour-packages.jpg";
 
 const Home = () => {
-  const phoneNumber = "+27747231048";
-  
-  const handleBookNow = () => {
-    const message = "Hi Green Gables! I'd like to book a journey. Please provide me with more details.";
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
   const services = [
     {
       icon: <Plane className="w-8 h-8" />,
       title: "Airport Transfers",
       description: "Seamless transportation to and from airports, ensuring a stress-free journey.",
-      features: ["Meet & Greet Service", "Flight Monitoring", "Door-to-Door Service"],
-      image: airportTransfer
+      features: ["Meet & Greet Service", "Flight Monitoring", "Door-to-Door Service"]
     },
     {
       icon: <Wine className="w-8 h-8" />,
       title: "Wine Tours",
       description: "Explore South Africa's renowned wine regions with our knowledgeable drivers.",
-      features: ["Expert Local Guides", "Premium Wineries", "Tasting Experiences"],
-      image: wineTourService
+      features: ["Expert Local Guides", "Premium Wineries", "Tasting Experiences"]
     },
     {
       icon: <Car className="w-8 h-8" />,
       title: "Shuttle Services",
       description: "Reliable transportation for daily commutes, special events, or corporate functions.",
-      features: ["Flexible Scheduling", "Group Bookings", "Corporate Rates"],
-      image: shuttleService
+      features: ["Flexible Scheduling", "Group Bookings", "Corporate Rates"]
     },
     {
       icon: <MapPin className="w-8 h-8" />,
       title: "Tour Packages",
       description: "Customised tours tailored to your preferences, showcasing South Africa's beauty.",
-      features: ["Custom Itineraries", "Multi-Day Tours", "Local Experiences"],
-      image: tourPackages
+      features: ["Custom Itineraries", "Multi-Day Tours", "Local Experiences"]
     }
   ];
 
@@ -125,19 +109,11 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 animate-scale-in border-border/50 hover:border-primary/30 overflow-hidden" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                  <div className="absolute top-4 right-4 w-12 h-12 bg-primary/20 backdrop-blur-sm rounded-full flex items-center justify-center text-primary-foreground">
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 animate-scale-in border-border/50 hover:border-primary/30" style={{ animationDelay: `${index * 0.1}s` }}>
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-success rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
                   </div>
-                </div>
-                <CardContent className="p-6 text-center">
                   <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>
                   <p className="text-muted-foreground mb-4">{service.description}</p>
                   <ul className="space-y-2 text-sm">
@@ -305,7 +281,7 @@ const Home = () => {
             Join thousands of satisfied customers who trust Green Gables for their transportation needs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground" onClick={handleBookNow}>
+            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground">
               Book Your Journey Now
               <ChevronRight className="ml-2 w-5 h-5" />
             </Button>
@@ -317,7 +293,6 @@ const Home = () => {
       </section>
 
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

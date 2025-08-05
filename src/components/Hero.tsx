@@ -3,14 +3,6 @@ import { ArrowRight, Star, Shield, Clock } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
-  const phoneNumber = "+27747231048";
-  
-  const handleBookNow = () => {
-    const message = "Hi Green Gables! I'd like to book a journey. Please provide me with more details.";
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -18,7 +10,7 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBg})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/30 to-gold/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-gold/70"></div>
       </div>
 
       {/* Content */}
@@ -64,7 +56,6 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-gold hover:bg-gold/90 text-gold-foreground shadow-lg hover:shadow-xl hover:shadow-gold/25 transition-all duration-300 animate-float"
-              onClick={handleBookNow}
             >
               Book Your Journey
               <ArrowRight className="ml-2 w-5 h-5" />

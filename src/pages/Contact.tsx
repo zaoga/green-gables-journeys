@@ -266,13 +266,15 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-2 animate-slide-in-left">
               <Card className="overflow-hidden">
-                <div className="h-96 bg-gradient-to-br from-primary/20 to-gold/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-foreground mb-2">Interactive Map Coming Soon</h3>
-                    <p className="text-muted-foreground">9 Swart Drive, President Park, Midrand, Gauteng</p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3587.229382625501!2d28.11901391502916!3d-25.96093498354621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e956f0f1f251c2d%3A0x8c6b0a8d3b1c6a7!2s9%20Swart%20Dr%2C%20President%20Park%2C%20Midrand%2C%201685%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1678886789012!5m2!1sen!2sus"
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </Card>
             </div>
 

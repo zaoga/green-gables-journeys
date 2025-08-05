@@ -23,11 +23,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 animate-fade-in">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-success rounded-full flex items-center justify-center">
-              <div className="w-8 h-8 bg-gold/20 rounded-full flex items-center justify-center">
-                <div className="w-4 h-4 bg-primary rounded-full animate-glow"></div>
-              </div>
-            </div>
+            <img src="/logo.png" alt="Green Gables Logo" className="w-12 h-12" />
             <div>
               <h1 className="text-xl font-bold text-primary">Green Gables Shuttles</h1>
               <p className="text-xs text-muted-foreground">Your Journey, Our Priority</p>
@@ -59,9 +55,11 @@ const Navigation = () => {
               <Phone className="w-4 h-4" />
               <span>074 723 1048</span>
             </div>
-            <Button variant="default" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
-              Book Now
-            </Button>
+            <a href="https://wa.me/27747231048?text=Hello!%20I'd%20like%20to%20book%20a%20journey." target="_blank" rel="noopener noreferrer">
+              <Button variant="default" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+                Book Now
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,9 +98,11 @@ const Navigation = () => {
                   <Mail className="w-4 h-4" />
                   <span>greengableshuttles@gmail.com</span>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-primary to-success">
-                  Book Now
-                </Button>
+                <a href="https://wa.me/27747231048?text=Hello!%20I'd%20like%20to%20book%20a%20journey." target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full bg-gradient-to-r from-primary to-success">
+                    Book Now
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

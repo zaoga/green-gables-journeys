@@ -20,6 +20,7 @@ import {
 import shuttleFleet from "@/assets/shuttle-fleet.jpg";
 import driverTeam from "@/assets/driver-team.jpg";
 import wineTours from "@/assets/wine-tours.jpg";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Home = () => {
   const services = [
@@ -170,7 +171,6 @@ const Home = () => {
                   alt="Green Gables Shuttle Fleet" 
                   className="rounded-2xl shadow-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@ const Home = () => {
                   alt="Luxury Sedan" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                <div className="absolute inset-0"></div>
                 <div className="absolute bottom-4 left-4 text-primary-foreground">
                   <h3 className="text-xl font-semibold">Luxury Sedans</h3>
                   <p className="text-sm opacity-90">Up to 4 passengers</p>
@@ -212,7 +212,7 @@ const Home = () => {
                   alt="Professional Drivers" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                <div className="absolute inset-0"></div>
                 <div className="absolute bottom-4 left-4 text-primary-foreground">
                   <h3 className="text-xl font-semibold">Professional Team</h3>
                   <p className="text-sm opacity-90">Experienced & Friendly</p>
@@ -227,7 +227,7 @@ const Home = () => {
                   alt="Tour Experiences" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                <div className="absolute inset-0"></div>
                 <div className="absolute bottom-4 left-4 text-primary-foreground">
                   <h3 className="text-xl font-semibold">Tour Experiences</h3>
                   <p className="text-sm opacity-90">Unforgettable Journeys</p>
@@ -293,6 +293,7 @@ const Home = () => {
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

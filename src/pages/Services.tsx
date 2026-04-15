@@ -3,12 +3,12 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Plane, 
-  Wine, 
-  Car, 
-  MapPin, 
-  Users, 
+import {
+  Plane,
+  Wine,
+  Car,
+  MapPin,
+  Users,
   Clock,
   Shield,
   Star,
@@ -16,7 +16,10 @@ import {
   ArrowRight,
   Calendar,
   Route,
-  Building
+  Building,
+  Briefcase,
+  Map,
+  Bus
 } from "lucide-react";
 import wineTours from "@/assets/wine-tours.jpg";
 import shuttleFleet from "@/assets/shuttle-fleet.jpg";
@@ -118,6 +121,51 @@ const Services = () => {
       pricing: "Custom Quotes",
       duration: "As Required",
       popular: false
+    },
+    {
+      icon: <Briefcase className="w-12 h-12" />,
+      title: "Executive & Private Transfers",
+      description: "Professional transport for executives, private clients, and point-to-point travel with comfort, discretion, and efficiency.",
+      features: [
+        "Chauffeur Services",
+        "Executive Transfers",
+        "Private Transfers",
+        "Point to Point",
+        "Hotel Transfers",
+        "Johannesburg Shuttle Service"
+      ],
+      popular: true,
+      ctaText: "Book Executive Transfers"
+    },
+    {
+      icon: <Map className="w-12 h-12" />,
+      title: "Tours & Leisure Travel",
+      description: "Enjoy tailored travel experiences across South Africa, from cultural outings to scenic day tours and lodge transfers.",
+      features: [
+        "Cultural Tours",
+        "Day/City Tours",
+        "Game Reserves & Lodges",
+        "Wine Tours",
+        "Tour Packages",
+        "Group Transfers"
+      ],
+      popular: false,
+      ctaText: "Book Tours & Travel"
+    },
+    {
+      icon: <Bus className="w-12 h-12" />,
+      title: "Shuttle & Special Services",
+      description: "Reliable transport options for daily travel, events, home support, and urgent service needs with easy booking.",
+      features: [
+        "Affordable Shuttle Service",
+        "Event Shuttle",
+        "Emergency Service",
+        "Home Services",
+        "Online Reservation",
+        "Shuttle Services"
+      ],
+      popular: false,
+      ctaText: "Book Shuttle Services"
     }
   ];
 
@@ -147,7 +195,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary/10 to-gold/10">
         <div className="container mx-auto px-4">
@@ -156,7 +204,7 @@ const Services = () => {
               Our Premium Services
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              From airport transfers to wine tours, we provide comprehensive transportation 
+              From airport transfers to wine tours, we provide comprehensive transportation
               solutions tailored to your specific needs across South Africa
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -179,7 +227,7 @@ const Services = () => {
                     Most Popular
                   </Badge>
                 )}
-                
+
                 <CardHeader className="text-center pb-4">
                   <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary group-hover:scale-110 transition-transform duration-300">
                     {service.icon}
@@ -198,19 +246,10 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <div className="border-t pt-4 space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Starting from</span>
-                      <span className="text-xl font-bold text-primary">{service.pricing}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">Duration</span>
-                      <span className="text-sm font-medium text-foreground">{service.duration}</span>
-                    </div>
-                  </div>
+
 
                   <Button className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
-                    Book {service.title}
+                    {(service as any).ctaText || `Book ${service.title}`}
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </CardContent>
@@ -229,12 +268,12 @@ const Services = () => {
                 Discover South Africa's Wine Country
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Experience the magic of South Africa's world-renowned wine regions with our expertly 
-                guided wine tours. From the rolling hills of Stellenbosch to the dramatic landscapes 
-                of Franschhoek, we'll take you on an unforgettable journey through some of the world's 
+                Experience the magic of South Africa's world-renowned wine regions with our expertly
+                guided wine tours. From the rolling hills of Stellenbosch to the dramatic landscapes
+                of Franschhoek, we'll take you on an unforgettable journey through some of the world's
                 most beautiful vineyards.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="text-center p-4 bg-background rounded-lg">
                   <div className="text-2xl font-bold text-primary mb-2">15+</div>
@@ -254,9 +293,9 @@ const Services = () => {
 
             <div className="animate-slide-in-right">
               <div className="relative">
-                <img 
-                  src={wineTours} 
-                  alt="Wine Tours" 
+                <img
+                  src={wineTours}
+                  alt="Wine Tours"
                   className="rounded-2xl shadow-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent rounded-2xl"></div>
@@ -301,9 +340,9 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-slide-in-left">
-              <img 
-                src={shuttleFleet} 
-                alt="Service Areas" 
+              <img
+                src={shuttleFleet}
+                alt="Service Areas"
                 className="rounded-2xl shadow-2xl"
               />
             </div>
@@ -313,7 +352,7 @@ const Services = () => {
                 Comprehensive Service Coverage
               </h2>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                We proudly serve the greater Gauteng area and beyond, with specialized routes 
+                We proudly serve the greater Gauteng area and beyond, with specialized routes
                 covering all major destinations, airports, and attractions throughout South Africa.
               </p>
 
@@ -367,7 +406,7 @@ const Services = () => {
               <Calendar className="mr-2 w-5 h-5" />
               Book Now
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
               Get Custom Quote
             </Button>
           </div>

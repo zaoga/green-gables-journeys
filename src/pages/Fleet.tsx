@@ -23,9 +23,28 @@ import driverTeam from "@/assets/driver-team.jpg";
 const Fleet = () => {
   const vehicles = [
     {
-      type: "Luxury Sedan",
-      image: shuttleFleet,
+      type: "Executive Sedan",
+      image: "/c class branded.png",
       capacity: "1-4 passengers",
+      description: "Ideal for business travel, airport transfers, and private city rides",
+      features: [
+        "Comfortable leather seating",
+        "Smooth and quiet ride",
+        "Professional chauffeur service",
+        "Spacious luggage capacity"
+      ],
+      amenities: [
+        { icon: <Users className="w-4 h-4" />, label: "4 Passengers" },
+        { icon: <Shield className="w-4 h-4" />, label: "Fully Insured" },
+        { icon: <Snowflake className="w-4 h-4" />, label: "AC" },
+        { icon: <MapPin className="w-4 h-4" />, label: "GPS" }
+      ],
+      popular: true,
+    },
+    {
+      type: "Luxury Van",
+      image: "/v-class branded.png",
+      capacity: "1-9 passengers",
       description: "Perfect for executive transport and small group transfers",
       features: [
         "Premium leather seats",
@@ -36,7 +55,7 @@ const Fleet = () => {
         "Complimentary bottled water"
       ],
       amenities: [
-        { icon: <Users className="w-4 h-4" />, label: "4 Passengers" },
+        { icon: <Users className="w-4 h-4" />, label: "9 Passengers" },
         { icon: <Shield className="w-4 h-4" />, label: "Fully Insured" },
         { icon: <Snowflake className="w-4 h-4" />, label: "AC" },
         { icon: <Wifi className="w-4 h-4" />, label: "WiFi" }
@@ -46,7 +65,7 @@ const Fleet = () => {
     },
     {
       type: "Executive SUV",
-      image: driverTeam,
+      image: "/land cruiser branded.png",
       capacity: "1-6 passengers",
       description: "Spacious and comfortable for family trips and group outings",
       features: [
@@ -68,7 +87,7 @@ const Fleet = () => {
     },
     {
       type: "Luxury Minibus",
-      image: shuttleFleet,
+      image: "/luxury mini van.png",
       capacity: "7-14 passengers",
       description: "Ideal for larger groups, corporate events, and tour groups",
       features: [
@@ -162,20 +181,18 @@ const Fleet = () => {
                   </Badge>
                 )}
                 
-                <div className="relative h-64 overflow-hidden rounded-t-lg">
+                <div className="relative h-80 overflow-hidden rounded-t-lg">
                   <img 
                     src={vehicle.image} 
                     alt={vehicle.type}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-primary-foreground">
                     <h3 className="text-xl font-semibold">{vehicle.type}</h3>
                     <p className="text-sm opacity-90">{vehicle.capacity}</p>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-gold text-gold-foreground">{vehicle.price}</Badge>
-                  </div>
+
                 </div>
 
                 <CardHeader className="pb-4">
@@ -351,7 +368,7 @@ const Fleet = () => {
               <Calendar className="mr-2 w-5 h-5" />
               Book Your Vehicle
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
               Get a Quote
             </Button>
           </div>

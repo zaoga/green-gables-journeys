@@ -34,13 +34,13 @@ const Footer = () => {
               Providing exceptional shuttle services and tour experiences across South Africa with a focus on reliability, safety, and customer satisfaction.
             </p>
             <div className="flex space-x-4">
-              <Button size="icon" variant="outline" className="border-primary-foreground/20 hover:bg-primary-foreground/10">
+              <Button size="icon" variant="outline" className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10">
                 <Facebook className="w-4 h-4" />
               </Button>
-              <Button size="icon" variant="outline" className="border-primary-foreground/20 hover:bg-primary-foreground/10">
+              <Button size="icon" variant="outline" className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10">
                 <Instagram className="w-4 h-4" />
               </Button>
-              <Button size="icon" variant="outline" className="border-primary-foreground/20 hover:bg-primary-foreground/10">
+              <Button size="icon" variant="outline" className="bg-transparent border-primary-foreground/20 hover:bg-primary-foreground/10">
                 <Twitter className="w-4 h-4" />
               </Button>
             </div>

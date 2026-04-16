@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,13 +20,46 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    date: '',
+    passengers: '1',
+    message: ''
+  });
+  const [selectedService, setSelectedService] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSendWhatsApp = () => {
+    const { firstName, lastName, email, phone, date, passengers, message } = formData;
+    const text = `*New Booking/Inquiry*
+*Name:* ${firstName} ${lastName}
+*Email:* ${email}
+*Phone:* ${phone}
+*Service Needed:* ${selectedService || 'Not specified'}
+*Preferred Date:* ${date || 'Not specified'}
+*Passengers:* ${passengers}
+
+*Message:*
+${message}`;
+    
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/27840707397?text=${encodedText}`, '_blank');
+  };
+
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone Numbers",
       details: [
-        "074 723 1048",
-        "076 561 9752"
+        "084 070 7397",
+        "074 723 1048"
       ],
       description: "Available 24/7 for bookings and inquiries"
     },
@@ -33,7 +67,7 @@ const Contact = () => {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Address",
       details: [
-        "greengableshuttles@gmail.com"
+        "office@greengablesshuttles.co.za"
       ],
       description: "We respond within 2 hours during business hours"
     },
@@ -140,22 +174,22 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="firstName" className="text-sm font-medium text-foreground">First Name</Label>
-                      <Input id="firstName" placeholder="Enter your first name" className="mt-2" />
+                      <Input id="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="Enter your first name" className="mt-2" />
                     </div>
                     <div>
                       <Label htmlFor="lastName" className="text-sm font-medium text-foreground">Last Name</Label>
-                      <Input id="lastName" placeholder="Enter your last name" className="mt-2" />
+                      <Input id="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Enter your last name" className="mt-2" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="email" className="text-sm font-medium text-foreground">Email Address</Label>
-                      <Input id="email" type="email" placeholder="your.email@example.com" className="mt-2" />
+                      <Input id="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="your.email@example.com" className="mt-2" />
                     </div>
                     <div>
                       <Label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number</Label>
-                      <Input id="phone" placeholder="+27 XX XXX XXXX" className="mt-2" />
+                      <Input id="phone" value={formData.phone} onChange={handleInputChange} placeholder="+27 XX XXX XXXX" className="mt-2" />
                     </div>
                   </div>
 
@@ -163,7 +197,15 @@ const Contact = () => {
                     <Label htmlFor="service" className="text-sm font-medium text-foreground">Service Needed</Label>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-2">
                       {services.map((service, index) => (
-                        <div key={index} className="flex items-center space-x-2 p-3 border border-border rounded-lg hover:border-primary/50 transition-colors cursor-pointer">
+                        <div 
+                          key={index} 
+                          onClick={() => setSelectedService(service.name)}
+                          className={`flex items-center space-x-2 p-3 border rounded-lg transition-colors cursor-pointer ${
+                            selectedService === service.name 
+                              ? 'border-primary bg-primary/10' 
+                              : 'border-border hover:border-primary/50'
+                          }`}
+                        >
                           <span className="text-lg">{service.icon}</span>
                           <span className="text-sm text-foreground">{service.name}</span>
                         </div>
@@ -174,11 +216,11 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="date" className="text-sm font-medium text-foreground">Preferred Date</Label>
-                      <Input id="date" type="date" className="mt-2" />
+                      <Input id="date" type="date" value={formData.date} onChange={handleInputChange} className="mt-2" />
                     </div>
                     <div>
                       <Label htmlFor="passengers" className="text-sm font-medium text-foreground">Number of Passengers</Label>
-                      <Input id="passengers" type="number" min="1" max="20" placeholder="1" className="mt-2" />
+                      <Input id="passengers" type="number" min="1" max="20" value={formData.passengers} onChange={handleInputChange} placeholder="1" className="mt-2" />
                     </div>
                   </div>
 
@@ -186,12 +228,14 @@ const Contact = () => {
                     <Label htmlFor="message" className="text-sm font-medium text-foreground">Message</Label>
                     <Textarea 
                       id="message" 
+                      value={formData.message}
+                      onChange={handleInputChange}
                       placeholder="Tell us about your journey requirements, pickup/drop-off locations, and any special requests..."
                       className="mt-2 min-h-[120px]"
                     />
                   </div>
 
-                  <Button size="lg" className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
+                  <Button onClick={handleSendWhatsApp} size="lg" className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
                     <Send className="mr-2 w-5 h-5" />
                     Send Message
                   </Button>
@@ -236,13 +280,17 @@ const Contact = () => {
 
               {/* Quick Actions */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  <Phone className="mr-2 w-5 h-5" />
-                  Call Now
+                <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                  <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20speak%20with%20someone" target="_blank" rel="noopener noreferrer">
+                    <Phone className="mr-2 w-5 h-5" />
+                    Call Now
+                  </a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  <NavigationIcon className="mr-2 w-5 h-5" />
-                  Get Directions
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground" asChild>
+                  <a href="https://wa.me/27840707397?text=Hi%2C%20I%20need%20directions%20to%20your%20office" target="_blank" rel="noopener noreferrer">
+                    <NavigationIcon className="mr-2 w-5 h-5" />
+                    Get Directions
+                  </a>
                 </Button>
               </div>
             </div>
@@ -300,9 +348,11 @@ const Contact = () => {
                   </div>
 
                   <div className="pt-4">
-                    <Button className="w-full bg-gradient-to-r from-primary to-success">
-                      <Calendar className="mr-2 w-4 h-4" />
-                      Schedule a Visit
+                    <Button className="w-full bg-gradient-to-r from-primary to-success" asChild>
+                      <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20schedule%20a%20visit" target="_blank" rel="noopener noreferrer">
+                        <Calendar className="mr-2 w-4 h-4" />
+                        Schedule a Visit
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -354,13 +404,11 @@ const Contact = () => {
             Professional, reliable, and always putting your journey first.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground">
-              <Phone className="mr-2 w-5 h-5" />
-              Call Us Now
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              <Mail className="mr-2 w-5 h-5" />
-              Send Email
+            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20call%20you" target="_blank" rel="noopener noreferrer">
+                <Phone className="mr-2 w-5 h-5" />
+                Call Us Now
+              </a>
             </Button>
           </div>
         </div>

@@ -222,9 +222,11 @@ const Fleet = () => {
                     ))}
                   </div>
 
-                  <Button className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
-                    Book {vehicle.type}
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                  <Button className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25" asChild>
+                    <a href={`https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20book%20a%20${encodeURIComponent(vehicle.type.toLowerCase())}`} target="_blank" rel="noopener noreferrer">
+                      Book {vehicle.type}
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -364,12 +366,16 @@ const Fleet = () => {
             that quality and professionalism make
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground">
-              <Calendar className="mr-2 w-5 h-5" />
-              Book Your Vehicle
+            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20book%20a%20vehicle" target="_blank" rel="noopener noreferrer">
+                <Calendar className="mr-2 w-5 h-5" />
+                Book Your Vehicle
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              Get a Quote
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer">
+                Get a Quote
+              </a>
             </Button>
           </div>
         </div>

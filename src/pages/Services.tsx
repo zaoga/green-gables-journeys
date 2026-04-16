@@ -248,9 +248,11 @@ const Services = () => {
 
 
 
-                  <Button className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
-                    {(service as any).ctaText || `Book ${service.title}`}
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                  <Button className="w-full bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25" asChild>
+                    <a href={`https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(service.title.toLowerCase())}`} target="_blank" rel="noopener noreferrer">
+                      {(service as any).ctaText || `Book ${service.title}`}
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -285,9 +287,11 @@ const Services = () => {
                 </div>
               </div>
 
-              <Button size="lg" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
-                Explore Wine Tours
-                <Wine className="ml-2 w-5 h-5" />
+              <Button size="lg" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25" asChild>
+                <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20explore%20wine%20tours" target="_blank" rel="noopener noreferrer">
+                  Explore Wine Tours
+                  <Wine className="ml-2 w-5 h-5" />
+                </a>
               </Button>
             </div>
 
@@ -402,12 +406,16 @@ const Services = () => {
             Choose from our range of premium services and experience the Green Gables difference today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground">
-              <Calendar className="mr-2 w-5 h-5" />
-              Book Now
+            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20book%20a%20service" target="_blank" rel="noopener noreferrer">
+                <Calendar className="mr-2 w-5 h-5" />
+                Book Now
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              Get Custom Quote
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20get%20a%20custom%20quote" target="_blank" rel="noopener noreferrer">
+                Get Custom Quote
+              </a>
             </Button>
           </div>
         </div>

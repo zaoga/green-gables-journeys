@@ -213,8 +213,10 @@ const About = () => {
               </div>
 
               <div className="mt-8">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25">
-                  Start Your Journey With Us
+                <Button size="lg" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25" asChild>
+                  <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20start%20my%20journey%20with%20you" target="_blank" rel="noopener noreferrer">
+                    Start Your Journey With Us
+                  </a>
                 </Button>
               </div>
             </div>
@@ -233,11 +235,15 @@ const About = () => {
             trusted transportation partner
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground">
-              Book Your Journey
+            <Button size="lg" className="bg-gold hover:bg-gold/90 text-gold-foreground" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20book%20a%20journey" target="_blank" rel="noopener noreferrer">
+                Book Your Journey
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-              Contact Us Today
+            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20contact%20you" target="_blank" rel="noopener noreferrer">
+                Contact Us Today
+              </a>
             </Button>
           </div>
         </div>

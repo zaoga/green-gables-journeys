@@ -53,9 +53,9 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4" />
-              <span>074 723 1048</span>
+              <span>084 070 7397</span>
             </div>
-            <a href="https://wa.me/27747231048?text=Hello!%20I'd%20like%20to%20book%20a%20journey." target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/27840707397?text=Hello!%20I'd%20like%20to%20book%20a%20journey." target="_blank" rel="noopener noreferrer">
               <Button variant="default" className="bg-gradient-to-r from-primary to-success hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
                 Book Now
               </Button>
@@ -92,13 +92,13 @@ const Navigation = () => {
               <div className="pt-4 border-t border-border space-y-3">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground px-4">
                   <Phone className="w-4 h-4" />
-                  <span>074 723 1048</span>
+                  <span>084 070 7397</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground px-4">
                   <Mail className="w-4 h-4" />
-                  <span>greengableshuttles@gmail.com</span>
+                  <span>office@greengablesshuttles.co.za</span>
                 </div>
-                <a href="https://wa.me/27747231048?text=Hello!%20I'd%20like%20to%20book%20a%20journey." target="_blank" rel="noopener noreferrer" className="w-full">
+                <a href="https://wa.me/27840707397?text=Hello!%20I'd%20like%20to%20book%20a%20journey." target="_blank" rel="noopener noreferrer" className="w-full">
                   <Button className="w-full bg-gradient-to-r from-primary to-success">
                     Book Now
                   </Button>

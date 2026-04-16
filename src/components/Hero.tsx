@@ -58,7 +58,7 @@ const Hero = () => {
               className="bg-gold hover:bg-gold/90 text-gold-foreground shadow-lg hover:shadow-xl hover:shadow-gold/25 transition-all duration-300 animate-float"
               asChild
             >
-              <a href="https://wa.me/27747231048?text=Hi%2C%20I%20would%20like%20to%20book%20a%20journey" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20book%20a%20journey" target="_blank" rel="noopener noreferrer">
                 Book Your Journey
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
@@ -69,7 +69,7 @@ const Hero = () => {
               className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm"
               asChild
             >
-              <a href="https://wa.me/27747231048?text=Hi%2C%20I%20would%20like%20to%20explore%20tours" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/27840707397?text=Hi%2C%20I%20would%20like%20to%20explore%20tours" target="_blank" rel="noopener noreferrer">
                 Explore Tours
               </a>
             </Button>
